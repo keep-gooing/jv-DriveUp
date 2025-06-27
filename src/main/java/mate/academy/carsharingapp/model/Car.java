@@ -22,7 +22,6 @@ import java.math.BigDecimal;
 @SQLRestriction("is_deleted = false")
 @Table(name = "cars")
 public class Car {
-    //fmemfpsk
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
