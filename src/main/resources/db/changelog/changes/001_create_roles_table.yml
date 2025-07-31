@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-roles-table
+      author: Olha
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: role_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+        - comment: "Created roles table"
+
+  - changeSet:
+      id: insert-initial-roles
+      author: your-name Olha
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: role_name
+                  value: "ROLE_MANAGER"
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: role_name
+                  value: "ROLE_CUSTOMER"
+        - comment: "Inserted initial roles: ROLE_MANAGER, ROLE_CUSTOMER"

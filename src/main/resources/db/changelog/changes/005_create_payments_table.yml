@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-payments-table
+      author: Olha
+      changes:
+        - createTable:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_deleted
+                  type: BOOLEAN
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
+              - column:
+                  name: session_url
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: session_id
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: amount_to_pay
+                  type: DECIMAL(10, 2)
+                  constraints:
+                    nullable: false
+        - comment: "Created payments table"
+
+  - changeSet:
+      id: add-fk-to-payments-rental
+      author: Olha
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: id
+            baseTableName: payments
+            constraintName: fk_payments_rental_id
+            referencedColumnNames: id
+            referencedTableName: rentals
+            onDelete: CASCADE
+        - comment: "Added foreign key from payments.id to rentals.id"
