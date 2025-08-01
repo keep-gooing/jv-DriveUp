@@ -33,19 +33,5 @@ services:
         "spring.datasource.username" : "$POSTGRES_USER",
         "spring.datasource.password" : "$POSTGRES_PASSWORD",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect"
-        "spring.jpa.hibernate.ddl-auto" : "validate",
-        "spring.jpa.show-sql": true,
-        "spring.jpa.open-in-view": false,
-        "spring.sql.init.mode": "always",
-        "spring.liquibase.change-log": "classpath:/db/changelog/changes/master.yml",
-        "spring.liquibase.enabled": true,
-        "liquibase.validate-on-update": false,
-        "jwt.secret": "$JWT_SECRET",
-        "jwt.expiration": "$JWT_EXPIRATION",
-        "telegram.bot.token": "$TELEGRAM_BOT_TOKEN",
-        "stripe.public.key": "$STRIPE_PUBLIC_KEY",
-        "stripe.secret.key": "$STRIPE_SECRET_KEY",
-        "payment.success.url": "$PAYMENT_SUCCESS_URL",
-        "payment.cancel.url": "$PAYMENT_CANCEL_URL"
       }'
       JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
