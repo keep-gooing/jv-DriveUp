@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>mate-academy</groupId>
+    <groupId>carsharingapp</groupId>
     <artifactId>car-sharing-app</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -72,11 +72,6 @@
             <groupId>com.stripe</groupId>
             <artifactId>stripe-java</artifactId>
             <version>24.18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.cdimascio</groupId>
-            <artifactId>dotenv-java</artifactId>
-            <version>3.0.0</version>
         </dependency>
 
         <!-- Testcontainers -->
@@ -203,6 +198,10 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.9.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <!-- Testing -->
