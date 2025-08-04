@@ -2,7 +2,8 @@
 
 ## Project Overview
 
-Welcome to the **Car Sharing Service Management System**. This comprehensive application modernizes the traditional car rental process by providing a feature-rich, user-friendly digital solution. It addresses common challenges such as untracked rentals, cash-only payments, and limited visibility into car availability, significantly enhancing the experience for both customers and administrators.
+Welcome to the **Car Sharing Service Management System**. 
+This comprehensive application modernizes the traditional car rental process by providing a feature-rich, user-friendly digital solution. It addresses common challenges such as untracked rentals, cash-only payments, and limited visibility into car availability, significantly enhancing the experience for both customers and administrators.
 
 The system is designed to streamline the process of finding, renting, and managing cars online. Users can effortlessly browse available vehicles, initiate rental transactions, manage their current and past rentals, and securely process payments. Administrators, on the other hand, gain robust tools for managing car inventory, overseeing all rentals and payments, and receiving real-time notifications.
 
@@ -26,45 +27,9 @@ The system is built on a robust, scalable architecture designed for high perform
   * **Rental**: Represents a booking made by a user to rent a car for a specified duration. Tracks the start and end dates of rentals, as well as whether the car was returned on time.
   * **Payment**: Handles financial transactions for rentals and overdue fines. Integrates with the Stripe API for secure payment processing.
 
-### UML ER Diagram
+### Model Diagram
 
-```
-+----------------+       +-----------------+       +------------------+
-|      Car       |<----+ |    Rental     |       |     Payment      |
-+----------------+       +-----------------+       +------------------+
-| id             |<---+ | id              |       | id               |
-| model          |       | rentalDate      |       | status           |
-| brand          |       | returnDate      |       | type             |
-| type           |       | actualReturnDate|       | sessionUrl       |
-| inventory      |       | car_id          | ----> | sessionId        |
-| dailyFee       |       | user_id         | ----> | amount           |
-| isDeleted      |       | payment_id      | <---- | rental_id        |
-+----------------+       +-----------------+       +------------------+
-            ^                        ^                         |
-            |                        |                         |
-            +------------------------+-------------------------+
-            |
-            |
-       +----------------+
-       |      User      |
-       +----------------+
-       | id             |
-       | email          |
-       | firstName      |
-       | lastName       |
-       | password       |
-       | tgChatId |
-       | isDeleted      |
-       +----------------+
-            |
-            v
-       +---------------+
-       |     Role      |
-       +---------------+
-       | id            |
-       | role          |
-       +---------------+
-```
+<img width="1772" height="1200" alt="image" src="https://github.com/user-attachments/assets/c12ffad0-fcd9-42f0-9240-f9e4caa2b43c" />
 
 ## Core Functionalities
 
@@ -87,18 +52,19 @@ The system is built on a robust, scalable architecture designed for high perform
 
 This project uses modern technologies to ensure high performance and a smooth user experience:
 
-  * **Spring Boot**: Backend framework for building the core application. 
-  * **Spring Security**: For managing authentication and authorization.
-  * **Spring Data JPA**: For interacting with the PostgreSQL database.
-  * **PostgreSQL**: Relational database for efficient data storage.
-  * **Docker**: For containerization and simplified deployment.
-  * **Swagger**: API documentation and interactive testing.
-  * **MapStruct**: Automated object mapping.
-  * **Liquibase**: Database change management and version control.
-  * **JUnit & Mockito**: For robust unit and integration testing.
-  * **Maven**: Builds and manages project dependencies.
-  * **Stripe API**: Manages secure payment processing for rentals.
-  * **Telegram API**: Sends real-time notifications via a Telegram bot.
+- **Java** 17 – Programming language
+- **Spring Boot** 3.2.0 - Backend framework for building the core application
+- **Spring Security** 6.2.x - For managing authentication and authorization
+- **Spring Data JPA** 3.2.x - For interacting with the database
+- **PostgreSQL** 15 - Database to store book and user information
+- **Docker** - Containerization for easy deployment
+- **Swagger** 2.5.0 - API documentation and testing
+- **MapStruct** 1.5.5 Final - Object mapping
+- **Liquibase** 4.x - Database change management
+- **JUnit & Mockito** 5 / 5.18.0 - For unit testing
+- **Testcontainers** 1.20.1 - For integration testing with real databases
+- **Stripe API** 24.18.0 - Manages secure payment processing for rentals.
+- **Telegram API** 6.9.7.1 - Sends real-time notifications via a Telegram bot.
 
 ## Requirements
 
@@ -112,45 +78,41 @@ Follow these steps to set up and run the application on your local machine. The 
 
 1.  **Clone the Repository**:
 
-    ```bash
-    git clone https://github.com/your-username/car-sharing-app.git
+       ```bash
+    git clone git@github.com:keep-gooing/car-sharing-app.git
     cd car-sharing-app
     ```
 
-2.  **Create `.env` file**: Create a `.env` file in the root directory of the project (same location as `docker-compose.yml`) by filling in the necessary environment variables.
+3.  **Create `.env` file**: Create a `.env` file in the root directory of the project (same location as `docker-compose.yml`) by filling in the necessary environment variables.
 
-    ```
-    STRIPE_SECRET_KEY=
-    TELEGRAM_BOT_TOKEN=
-    TELEGRAM_BOT_NAME=
-    JWT_SECRET=
-    JWT_EXPIRATION=
-    POSTGRES_DATABASE=carsharing
-    POSTGRES_USER=postgres
-    POSTGRES_PASSWORD=12345678pLzola.
-    POSTGRES_LOCAL_PORT=5436
-    POSTGRES_DOCKER_PORT=5432
-    SPRING_LOCAL_PORT=8082
-    SPRING_DOCKER_PORT=8080
-    DEBUG_PORT=5007
-    DOMAIN=
+     ```
+      POSTGRES_USER=<your_postgres_user>
+      POSTGRES_PASSWORD=<your_postgres_password>
+      POSTGRES_DATABASE=<your_database_name>
+      POSTGRES_LOCAL_PORT=<your_local_port>
+      POSTGRES_DOCKER_PORT=<your_docker_port>
+     
+      SPRING_LOCAL_PORT=<your_spring_local_port>
+      SPRING_DOCKER_PORT=<your_spring_docker_port>
+
+      DEBUG_PORT=<your_debug_port>
     ```
 
-3.  **Build the Application**: Use Maven to build the application. This will compile the code and package it into a JAR file.
+4.  **Build the Application**: Use Maven to build the application. This will compile the code and package it into a JAR file.
 
     ```bash
     mvn clean package
     ```
 
-4.  **Start Docker Containers**: Ensure Docker Desktop is running on your system, then execute the following command in the project's root directory to build images and start the application along with its dependencies (PostgreSQL database).
+5.  **Start Docker Containers**: Ensure Docker Desktop is running on your system, then execute the following command in the project's root directory to build images and start the application along with its dependencies (PostgreSQL database).
 
     ```bash
     docker-compose up --build
     ```
 
-5.  **Access the Application**: The application will be accessible at `http://localhost:8082/api`.
+6.  **Access the Application**: The application will be accessible at `http://localhost:8082/api`.
 
-6.  **Stop the Application**: To stop the application and its containers, use:
+7.  **Stop the Application**: To stop the application and its containers, use:
 
     ```bash
     docker-compose down
@@ -168,7 +130,7 @@ Follow these steps to set up and run the application on your local machine. The 
     mvn clean test
     ```
 2.  **API Documentation (Swagger)**: For detailed API documentation and to test endpoints directly, visit:
-    `http://localhost:8082/api/swagger-ui/index.html`
+    `http://localhost:8082/api/swagger-ui/index.html#/`
 
 ## Postman Collection
 
