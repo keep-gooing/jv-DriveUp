@@ -1,11 +1,6 @@
 # Car Sharing App
 
-## Project Overview
-
-Welcome to the **Car Sharing Service Management System**. 
-This comprehensive application modernizes the traditional car rental process by providing a feature-rich, user-friendly digital solution. It addresses common challenges such as untracked rentals, cash-only payments, and limited visibility into car availability, significantly enhancing the experience for both customers and administrators.
-
-The system is designed to streamline the process of finding, renting, and managing cars online. Users can effortlessly browse available vehicles, initiate rental transactions, manage their current and past rentals, and securely process payments. Administrators, on the other hand, gain robust tools for managing car inventory, overseeing all rentals and payments, and receiving real-time notifications.
+Car Sharing Service Management System is a modern web-based solution designed to automate the car rental process. Instead of outdated methods like cash payments or manual booking tracking, the system offers a convenient and secure digital experience for both users and administrators.
 
 ## Goals
 
@@ -29,7 +24,7 @@ The system is built on a robust, scalable architecture designed for high perform
 
 ### Model Diagram
 
-<img width="1772" height="1200" alt="image" src="https://github.com/user-attachments/assets/c12ffad0-fcd9-42f0-9240-f9e4caa2b43c" />
+<img width="1278" height="820" alt="image" src="https://github.com/user-attachments/assets/2766876c-25d8-4b60-b204-15310bc7bc95" />
 
 ## Core Functionalities
 
