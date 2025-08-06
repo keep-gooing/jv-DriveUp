@@ -89,8 +89,18 @@ Follow these steps to set up and run the application on your local machine. The 
      
       SPRING_LOCAL_PORT=<your_spring_local_port>
       SPRING_DOCKER_PORT=<your_spring_docker_port>
-
       DEBUG_PORT=<your_debug_port>
+
+      JWT_EXPIRATION=<your_jwt_expiration_in_milliseconds>
+      JWT_SECRET=<your_jwt_secret_base64_encoded>
+
+      TELEGRAM_BOT_TOKEN=<your_telegram_bot_token>
+
+      STRIPE_PUBLIC_KEY=<your_stripe_public_key>
+      STRIPE_SECRET_KEY=<your_stripe_secret_key>
+
+      PAYMENT_SUCCESS_URL=<your_payment_success_url>
+      PAYMENT_CANCEL_URL=<your_payment_cancel_url>
     ```
 
 4.  **Build the Application**: Use Maven to build the application. This will compile the code and package it into a JAR file.
