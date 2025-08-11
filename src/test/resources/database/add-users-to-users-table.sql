@@ -1,0 +1,4 @@
+INSERT INTO users (id, email, password, first_name, last_name, tg_chat_id, is_deleted) VALUES
+                                                                                                 (1, 'admin@example.com', '$2a$10$Rz20lqS.dG7r5.d8w0nE.u5cR1P0y.n8R7vM2W0K.d8R7vM2W0K', 'Admin', 'Adminovich', 123456789, FALSE),
+                                                                                                 (2, 'customer@example.com', '$2a$10$Rz20lqS.dG7r5.d8w0nE.u5cR1P0y.n8R7vM2W0K.d8R7vM2W0K', 'Customer', 'Customerovich', 123456799, FALSE);
+INSERT INTO users_roles (user_id, role_id) VALUES (1, 1), (2, 2);
