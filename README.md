@@ -1,6 +1,6 @@
-# Car Sharing App
+# DriveUp
 
-Car Sharing Service Management System is a modern web-based solution designed to automate the car rental process. Instead of outdated methods like cash payments or manual booking tracking, the system offers a convenient and secure digital experience for both users and administrators.
+**DriveUp** is a modern web-based solution designed to automate the car rental process. Instead of outdated methods like cash payments or manual booking tracking, the system offers a convenient and secure digital experience for both users and administrators.
 
 ## Goals
 
